@@ -1,0 +1,22 @@
+<div class="stock-search">
+  <form [formGroup]="form">
+    <mat-form-field style="font-size: 12px;" floatLabel="never" appearance="outline" fxFill >
+      <input matInput placeholder="Search stock" [matAutocomplete]="auto" formControlName="input">
+      <button mat-button matSuffix mat-icon-button aria-label="search">
+        <mat-icon>search</mat-icon>
+      </button>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="stockSelected($event)">
+        <mat-option *ngFor="let stock of (symbols$ | async)" [value]="stock">
+
+          <div fxLayout="row" fxLayoutAlign="space-between center" style="height: initial;">
+              <span>{{ stock.symbol }}</span> - <small>{{ stock.name }}</small>
+
+              <button mat-button matSuffix mat-icon-button aria-label="add" (click)="add($event, stock)">
+                <mat-icon>add</mat-icon>
+              </button>
+          </div>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>

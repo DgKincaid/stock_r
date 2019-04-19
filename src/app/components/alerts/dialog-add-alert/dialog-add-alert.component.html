@@ -1,0 +1,24 @@
+<h1 mat-dialog-title> Alert - {{ stock.symbol }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Symbol" formControlName="symbol">
+    </mat-form-field>
+
+  <div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      {{ min }} <mat-slider [max]="max" [min]="min" [value]="value" (input)="onSlider($event)"></mat-slider> {{ max }}
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <mat-form-field>
+        <input matInput placeholder="Value" formControlName="watchValue">
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="create()">Create</button>
+</div>

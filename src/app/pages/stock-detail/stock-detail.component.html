@@ -1,0 +1,9 @@
+<div fxLayout="column" *ngIf="(stock$ | async); let stock">
+  <div fxLayout="row" fxLayoutAlign="end" fxFill>
+    <app-add-alert [stock]="stock"></app-add-alert>
+  </div>
+
+  <div fxLayout="row" fxFill>
+    {{ stock.companyName }}
+  </div>
+</div>

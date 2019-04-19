@@ -1,0 +1,13 @@
+<div class="portfolio" fxLayout="column" fxLayoutAlign="none center">
+  <div class="portfolio-row" fxLayout="row" fxLayoutAlign="space-between center" fxFill *ngFor="let stock of portfolio$ | async" (click)="stockClick.emit(stock)">
+    <div fxFlex="10">
+      {{ stock.symbol }}
+    </div>
+    <div fxFlex="30">
+      {{ stock.companyName }}
+    </div>
+    <div fxFlex="30">
+      {{ stock.latestPrice }}
+    </div>
+  </div>
+</div>
